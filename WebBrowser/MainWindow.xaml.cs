@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,24 +21,20 @@ namespace WebBrowser
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Environment.Exit(0);
+            webBrowser.Address = Environment.CurrentDirectory.Replace(@"\", @"/") + "/html/index.html";
         }
 
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            btn.Opacity = 1;
-        }
-
-        private void btn_MouseLeave(object sender, MouseEventArgs e)
-        {
-            btn.Opacity = 0.1;
+            e.Cancel = true;
         }
     }
 }

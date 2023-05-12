@@ -5,15 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebBrowser"
         xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
-        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" WindowStyle="None">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" WindowStyle="None" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="200*"/>
-        </Grid.RowDefinitions>
-        <cefSharp:ChromiumWebBrowser Grid.Row="0" Grid.RowSpan="2" Address="https://youtube.com"/>
-        <Button x:Name="btn" Content="Close" Width="50" HorizontalAlignment="Left" Click="Button_Click" Opacity="0.1" MouseEnter="Button_MouseEnter" MouseLeave="btn_MouseLeave"></Button>
+        <cefSharp:ChromiumWebBrowser x:Name="webBrowser"/>
     </Grid>
 </Window>

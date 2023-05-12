@@ -100,6 +100,81 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="html\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Resource Include="html\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <None Include="html\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <None Include="html\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Resource Include="html\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\animated.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\core.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\icons.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\larger.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\list.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\path.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\less\variables.less" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <None Include="html\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Resource Include="html\fonts\montserrat\Montserrat-Black.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-Light.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Resource Include="html\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-Black.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-Bold.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-Italic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-Light.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-Medium.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-Regular.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-Thin.ttf" />
+    <Resource Include="html\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <None Include="html\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="html\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="html\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="html\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="html\vendor\bootstrap\css\bootstrap.css.map" />
+    <None Include="html\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -108,6 +183,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="html\css\main.css" />
+    <Content Include="html\css\util.css" />
+    <Content Include="html\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="html\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="html\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Resource Include="html\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Resource Include="html\fonts\montserrat\OFL.txt" />
+    <Resource Include="html\images\icons\favicon.ico" />
+    <Resource Include="html\images\img-01.png" />
+    <Content Include="html\index.html" />
+    <Content Include="html\js\main.js" />
+    <Content Include="html\vendor\animate\animate.css" />
+    <Content Include="html\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="html\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="html\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="html\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="html\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="html\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="html\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="html\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="html\vendor\bootstrap\js\popper.js" />
+    <Content Include="html\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="html\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="html\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="html\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="html\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="html\vendor\select2\select2.css" />
+    <Content Include="html\vendor\select2\select2.js" />
+    <Content Include="html\vendor\select2\select2.min.css" />
+    <Content Include="html\vendor\select2\select2.min.js" />
+    <Content Include="html\vendor\tilt\tilt.jquery.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
