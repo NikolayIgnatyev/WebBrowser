@@ -14,6 +14,6 @@
             <RowDefinition Height="200*"/>
         </Grid.RowDefinitions>
         <cefSharp:ChromiumWebBrowser Grid.Row="0" Grid.RowSpan="2" Address="https://youtube.com"/>
-        <Button Content="Close" Width="50" HorizontalAlignment="Left" Click="Button_Click"></Button>
+        <Button x:Name="btn" Content="Close" Width="50" HorizontalAlignment="Left" Click="Button_Click" Opacity="0.1" MouseEnter="Button_MouseEnter" MouseLeave="btn_MouseLeave"></Button>
     </Grid>
 </Window>

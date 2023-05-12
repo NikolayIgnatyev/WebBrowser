@@ -29,5 +29,15 @@ namespace WebBrowser
         {
             Environment.Exit(0);
         }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btn.Opacity = 1;
+        }
+
+        private void btn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btn.Opacity = 0.1;
+        }
     }
 }
