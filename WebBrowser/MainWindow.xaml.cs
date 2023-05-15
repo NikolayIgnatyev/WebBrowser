@@ -48,9 +48,16 @@ namespace WebBrowser
                 motherboardName = GetHardwareInfo("Win32_BaseBoard", "Manufacturer") + " " + GetHardwareInfo("Win32_BaseBoard", "Product")
             };
             DataContext = new MainWindowViewModel(pc);
+            webBrowser.JavascriptMessageReceived += WebBrowser_JavascriptMessageReceived; ;
         }
- 
 
+        private void WebBrowser_JavascriptMessageReceived(object sender, JavascriptMessageReceivedEventArgs e)
+        {
+            if(e != null)
+            {
+                System.Windows.MessageBox.Show(e.Message.ToString());
+            }
+        }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -144,7 +151,7 @@ namespace WebBrowser
             return result;
         }
 
-
+        #region Hook
         private const int WH_KEYBOARD_LL = 13;//Keyboard hook;
 
         //Keys data structure
@@ -392,5 +399,6 @@ namespace WebBrowser
             UnhookWindowsHookEx(m_hHook_6);
             UnhookWindowsHookEx(m_hHook_7);
         }
+        #endregion Hook
     }
 }
