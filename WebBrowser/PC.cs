@@ -12,7 +12,9 @@ namespace WebBrowser
         public string proc { get; set; }
         public string video { get; set; }
         public string disk { get; set; }
-        public int sizeDiskGb { get; set; }
+        public double sizeDiskGb { get; set; }
+        public string ram { get; set; }
+        public double ramSize { get; set; }
         public PC() { }
     }
 }

@@ -38,9 +38,10 @@ namespace WebBrowser
             {
                 proc = GetHardwareInfo("Win32_Processor", "Name"),
                 video = GetHardwareInfo("Win32_VideoController", "Name"),
-                disk = GetHardwareInfo("Win32_DiskDrive", "Caption").ToString(),
-                //sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024),
-
+                disk = GetHardwareInfo("Win32_DiskDrive", "Caption"),
+                sizeDiskGb = Math.Round(Convert.ToDouble(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024, 2),
+                ram = GetHardwareInfo("Win32_PhysicalMemory", "Manufacturer"),
+                ramSize = Math.Round(Convert.ToDouble(GetHardwareInfo("Win32_PhysicalMemory", "Capacity")) / 1024 / 1024, 2)
             };
             DataContext = new MainWindowViewModel(pc);
         }
