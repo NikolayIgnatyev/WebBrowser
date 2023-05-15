@@ -63,7 +63,7 @@ namespace WebBrowser
             {
                 foreach (ManagementObject obj in searcher.Get())
                 {
-                    result += obj[ClassItemField].ToString().Trim();
+                    result += $"{obj[ClassItemField].ToString().Trim()}, ";
                 }
             }
             catch (Exception ex)

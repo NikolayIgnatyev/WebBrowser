@@ -33,7 +33,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _Ram = "Оперативная память: " + value + " ГБ";
+                _Ram = "Оперативная память: " + value;
                 OnPropertyChanged(nameof(Ram));
             }
         }
@@ -86,7 +86,7 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return "Объем оперативной памяти: " + _volumeRam;
+                return "Объем оперативной памяти: " + _volumeRam + " ГБ";
             }
             set
             {
