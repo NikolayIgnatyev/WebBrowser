@@ -23,6 +23,7 @@ namespace WebBrowser.ViewModels
             Disk = pc.disk;
             Ram = pc.ram;
             VolumeRam = pc.ramSize.ToString();
+            MonitorName = pc.monitorName;
 
         }
         public string MonitorName
