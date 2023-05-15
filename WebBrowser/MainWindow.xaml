@@ -18,6 +18,7 @@
             <TextBlock Text="{Binding Path= MonitorName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= KeyboardName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Mother, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding Path= Mouse, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
 </Window>

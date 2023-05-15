@@ -19,6 +19,7 @@ namespace WebBrowser.ViewModels
         string _keyboardName;
         string _mother;
         string _screenSize;
+        string _mouse;
         public MainWindowViewModel(PC pc)
         {
             VolumeDisk = pc.sizeDiskGb.ToString();
@@ -33,6 +34,18 @@ namespace WebBrowser.ViewModels
             ScreenSize = pc.screenSize;
 
 
+        }
+        public string Mouse
+        {
+            get
+            {
+                return _mouse;
+            }
+            set
+            {
+                _mouse = value;
+                OnPropertyChanged(nameof(Mouse));
+            }
         }
         public string ScreenSize
         {
