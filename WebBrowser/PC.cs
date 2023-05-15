@@ -15,6 +15,7 @@ namespace WebBrowser
         public double sizeDiskGb { get; set; }
         public string ram { get; set; }
         public double ramSize { get; set; }
+        public string monitorName { get; set; }
         public PC() { }
     }
 }
