@@ -28,6 +28,10 @@ namespace WebBrowser.ViewModels
             Ram = pc.ram;
             VolumeRam = pc.ramSize.ToString();
             MonitorName = pc.monitorName;
+            Mother = pc.motherboardName;
+            KeyboardName = pc.keyboardName;
+            ScreenSize = pc.screenSize;
+
 
         }
         public string ScreenSize
