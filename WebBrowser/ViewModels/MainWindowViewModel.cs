@@ -12,14 +12,43 @@ namespace WebBrowser.ViewModels
         string _video;
         string _volumeRam;
         string _volumeDisk;
+        string _Disk;
+        string _Ram;
 
         public MainWindowViewModel(PC pc)
         {
-            VolumeDisk = pc.disk;
+            VolumeDisk = pc.sizeDiskGb.ToString();
             Proc = pc.proc;
             Video = pc.video;
-        }
+            Disk = pc.disk;
+            Ram = pc.ram;
+            VolumeRam = pc.ramSize.ToString();
 
+        }
+        public string Ram
+        {
+            get
+            {
+                return _Ram;
+            }
+            set
+            {
+                _Ram = value;
+                OnPropertyChanged(nameof(Ram));
+            }
+        }
+        public string Disk
+        {
+            get
+            {
+                return _Disk;
+            }
+            set
+            {
+                _Disk = value;
+                OnPropertyChanged(nameof(Disk));
+            }
+        }
         public string VolumeDisk
         {
             get

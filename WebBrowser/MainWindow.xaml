@@ -11,7 +11,10 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Background="AliceBlue" Margin="50">
             <TextBlock Text="{Binding Path= Proc, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="{Binding Path= Video, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="{Binding Path= Ram, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= VolumeRam, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding Path= Disk, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding Path= VolumeDisk, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
 </Window>
