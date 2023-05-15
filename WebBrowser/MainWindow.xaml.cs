@@ -32,7 +32,7 @@ namespace WebBrowser
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             webBrowser.Address = Environment.CurrentDirectory.Replace(@"\", @"/") + "/html/index.html";
-            SetHook();
+            //SetHook();
             PC pC = new PC
             {
                 proc = GetHardwareInfo("Win32_Processor", "Name").ToString(),
