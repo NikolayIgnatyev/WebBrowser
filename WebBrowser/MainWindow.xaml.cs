@@ -42,7 +42,7 @@ namespace WebBrowser
                 sizeDiskGb = Math.Round(GetHardwareInfoInt("Win32_DiskDrive", "Size") / 1024, 2),
                 ram = GetHardwareInfo("Win32_PhysicalMemory", "Manufacturer"),
                 ramSize = GetHardwareInfoInt("Win32_PhysicalMemory", "Capacity"),
-                monitorName = GetHardwareInfo("Win32_DesktopMonitor", "Name")
+                monitorName = GetHardwareInfo("Win32_DesktopMonitor", "MonitorType")
             };
             DataContext = new MainWindowViewModel(pc);
         }

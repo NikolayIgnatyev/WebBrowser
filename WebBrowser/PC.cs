@@ -16,6 +16,10 @@ namespace WebBrowser
         public string ram { get; set; }
         public double ramSize { get; set; }
         public string monitorName { get; set; }
+        public string keyboardName { get; set; }
+        public string mouseName { get; set; }
+        public string motherboardName { get; set; }
+        public string screenSize { get; set; }
         public PC() { }
     }
 }
