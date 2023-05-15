@@ -45,7 +45,7 @@ namespace WebBrowser
                 monitorName = GetHardwareInfo("Win32_DesktopMonitor", "Name"),
                 screenSize = GetHardwareInfo("Win32_DesktopMonitor", "ScreenWidth") + "x" + GetHardwareInfo("Win32_DesktopMonitor", "ScreenHeight"),
                 keyboardName = GetHardwareInfo("Win32_Keyboard", "Name"),
-                mouseName = null,
+                mouseName = GetHardwareInfo("Win32_PointingDevice", "Name"),
                 motherboardName = GetHardwareInfo("Win32_MotherboardDevice", "Name")
             };
             DataContext = new MainWindowViewModel(pc);
