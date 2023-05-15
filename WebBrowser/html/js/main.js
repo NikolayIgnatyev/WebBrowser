@@ -51,7 +51,15 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
-    
-    
 
+    function returnEmailValue() {
+        return document.getElementsByName("email").value;
+    }
+
+
+    function returnPassValue(input) {
+        return document.getElementsByName("pass").value;
+    }
+    
+ 
 })(jQuery);
