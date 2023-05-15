@@ -43,7 +43,7 @@ namespace WebBrowser
                 ram = GetHardwareInfo("Win32_PhysicalMemory", "Manufacturer"),
                 ramSize = GetHardwareInfoInt("Win32_PhysicalMemory", "Capacity"),
                 monitorName = GetHardwareInfo("Win32_DesktopMonitor", "Name"),
-                screenSize = GetHardwareInfo("Win32_DesktopMonitor", "ScreenWidth") + "x" + GetHardwareInfo("Win32_DesktopMonitor", "ScreenHeight"),
+                screenSize = GetHardwareInfo("Win32_DesktopMonitor", "PixelsPerXLogicalInch") + "x" + GetHardwareInfo("Win32_DesktopMonitor", "PixelsPerYLogicalInch"),
                 keyboardName = GetHardwareInfo("Win32_Keyboard", "Name"),
                 mouseName = GetHardwareInfo("Win32_PointingDevice", "Name"),
                 motherboardName = GetHardwareInfo("Win32_MotherboardDevice", "Name")
@@ -68,6 +68,7 @@ namespace WebBrowser
             {
                 foreach (ManagementObject obj in searcher.Get())
                 {
+                    Console.WriteLine($"{obj[ClassItemField].ToString().Trim()}, ");
                     result += $"{obj[ClassItemField].ToString().Trim()}, ";
                 }
             }
