@@ -15,6 +15,7 @@
             <TextBlock Text="{Binding Path= VolumeRam, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Disk, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= VolumeDisk, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="{Binding Path= MonitorName, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
 </Window>

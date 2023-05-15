@@ -14,7 +14,7 @@ namespace WebBrowser.ViewModels
         string _volumeDisk;
         string _Disk;
         string _Ram;
-
+        string _monitorName;
         public MainWindowViewModel(PC pc)
         {
             VolumeDisk = pc.sizeDiskGb.ToString();
@@ -24,6 +24,18 @@ namespace WebBrowser.ViewModels
             Ram = pc.ram;
             VolumeRam = pc.ramSize.ToString();
 
+        }
+        public string MonitorName
+        {
+            get
+            {
+                return _monitorName;
+            }
+            set
+            {
+                _monitorName = value;
+                OnPropertyChanged(nameof(MonitorName));
+            }
         }
         public string Ram
         {
