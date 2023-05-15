@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using WebBrowser.ViewModels;
 
 namespace WebBrowser
 {
@@ -23,7 +24,7 @@ namespace WebBrowser
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        PC pc;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,14 +34,15 @@ namespace WebBrowser
         {
             webBrowser.Address = Environment.CurrentDirectory.Replace(@"\", @"/") + "/html/index.html";
             //SetHook();
-            PC pC = new PC
+            pc = new PC
             {
                 proc = GetHardwareInfo("Win32_Processor", "Name"),
                 video = GetHardwareInfo("Win32_VideoController", "Name"),
                 disk = GetHardwareInfo("Win32_DiskDrive", "Caption").ToString(),
-                sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024),
+                //sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024),
 
             };
+            DataContext = new MainWindowViewModel(pc);
         }
  
 

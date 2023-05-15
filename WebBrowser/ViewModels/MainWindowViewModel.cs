@@ -11,9 +11,28 @@ namespace WebBrowser.ViewModels
         string _proc;
         string _video;
         string _volumeRam;
+        string _volumeDisk;
 
+        public MainWindowViewModel(PC pc)
+        {
+            VolumeDisk = pc.disk;
+            Proc = pc.proc;
+            Video = pc.video;
+        }
 
-        string Proc
+        public string VolumeDisk
+        {
+            get
+            {
+                return _volumeDisk;
+            }
+            set
+            {
+                _volumeDisk = value;
+                OnPropertyChanged(nameof(VolumeDisk));
+            }
+        }
+        public string Proc
         {
             get { return _proc; }
             set 
@@ -22,7 +41,7 @@ namespace WebBrowser.ViewModels
                 OnPropertyChanged(nameof(Proc));
             }
         }
-        string Video
+        public string Video
         {
             get
             {
@@ -34,7 +53,7 @@ namespace WebBrowser.ViewModels
                 OnPropertyChanged(nameof(Video));
             }
         }
-        string VolumeRam
+        public string VolumeRam
         {
             get
             {
