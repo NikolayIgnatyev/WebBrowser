@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,9 @@ namespace WebBrowser.ViewModels
         string _Disk;
         string _Ram;
         string _monitorName;
+        string _keyboardName;
+        string _mother;
+        string _screenSize;
         public MainWindowViewModel(PC pc)
         {
             VolumeDisk = pc.sizeDiskGb.ToString();
@@ -26,6 +30,42 @@ namespace WebBrowser.ViewModels
             MonitorName = pc.monitorName;
 
         }
+        public string ScreenSize
+        {
+            get
+            {
+                return _screenSize;
+            }
+            set
+            {
+                _screenSize = "Разрешение экрана: " + value;
+                OnPropertyChanged(nameof(ScreenSize));
+            }
+        }
+        public string KeyboardName
+        {
+            get
+            {
+                return _keyboardName;
+            }
+            set
+            {
+                _monitorName ="Клавиатура: "+ value;
+                OnPropertyChanged(nameof(KeyboardName));
+            }
+        }
+        public string Mother
+        {
+            get
+            {
+                return _mother;
+            }
+            set
+            {
+                _mother = "Материнская плата: " + value;
+                OnPropertyChanged(nameof(Mother));
+            }
+        }
         public string MonitorName
         {
             get
@@ -34,7 +74,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _monitorName = value;
+                _monitorName = "Монитор: " + value;
                 OnPropertyChanged(nameof(MonitorName));
             }
         }
