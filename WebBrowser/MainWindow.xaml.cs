@@ -35,25 +35,14 @@ namespace WebBrowser
             //SetHook();
             PC pC = new PC
             {
-                proc = GetHardwareInfo("Win32_Processor", "Name").ToString(),
-                video = GetHardwareInfo("Win32_VideoController", "Name").ToString(),
+                proc = GetHardwareInfo("Win32_Processor", "Name"),
+                video = GetHardwareInfo("Win32_VideoController", "Name"),
                 disk = GetHardwareInfo("Win32_DiskDrive", "Caption").ToString(),
-                //sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024).ToString(),
+                sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024),
 
             };
-
         }
-        private static void OutputResult(string info, List<string> result)
-        {
-            if (info.Length > 0)
-                Console.WriteLine(info);
-
-            if (result.Count > 0)
-            {
-                for (int i = 0; i < result.Count; ++i)
-                    Console.WriteLine(result[i]);
-            }
-        }   
+ 
 
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -61,9 +50,9 @@ namespace WebBrowser
             e.Cancel = true;
         }
 
-        private static List<string> GetHardwareInfo(string WIN32_Class, string ClassItemField)
+        private static string GetHardwareInfo(string WIN32_Class, string ClassItemField)
         {
-            List<string> result = new List<string>();
+            string result = null;
 
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM " + WIN32_Class);
 
@@ -71,7 +60,7 @@ namespace WebBrowser
             {
                 foreach (ManagementObject obj in searcher.Get())
                 {
-                    result.Add(obj[ClassItemField].ToString().Trim());
+                    result += obj[ClassItemField].ToString().Trim();
                 }
             }
             catch (Exception ex)
