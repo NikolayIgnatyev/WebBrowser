@@ -43,10 +43,9 @@ namespace WebBrowser
                 ram = GetHardwareInfo("Win32_PhysicalMemory", "Manufacturer"),
                 ramSize = GetHardwareInfoInt("Win32_PhysicalMemory", "Capacity"),
                 monitorName = GetHardwareInfo("Win32_DesktopMonitor", "Name"),
-                screenSize = GetHardwareInfo("Win32_DesktopMonitor", "PixelsPerXLogicalInch") + "x" + GetHardwareInfo("Win32_DesktopMonitor", "PixelsPerYLogicalInch"),
-                keyboardName = GetHardwareInfo("Win32_Keyboard", "Name"),
-                mouseName = GetHardwareInfo("Win32_PointingDevice", "Name"),
-                motherboardName = GetHardwareInfo("Win32_MotherboardDevice", "Name")
+                keyboardName = GetHardwareInfo("Win32_Keyboard", "Description"),
+                mouseName = GetHardwareInfo("Win32_PointingDevice", "Description"),
+                motherboardName = GetHardwareInfo("Win32_BaseBoard", "Manufacturer") + " " + GetHardwareInfo("Win32_BaseBoard", "Product")
             };
             DataContext = new MainWindowViewModel(pc);
         }
@@ -62,14 +61,13 @@ namespace WebBrowser
         {
             string result = null;
 
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM " + WIN32_Class);
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + WIN32_Class);
 
             try
             {
                 foreach (ManagementObject obj in searcher.Get())
                 {
                     result += $"{obj[ClassItemField].ToString().Trim()} ";
-                    
                 }
             }
             catch (Exception ex)
