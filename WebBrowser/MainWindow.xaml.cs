@@ -31,11 +31,51 @@ namespace WebBrowser
         {
             webBrowser.Address = Environment.CurrentDirectory.Replace(@"\", @"/") + "/html/index.html";
             SetHook();
+            PC pC = new PC
+            {
+                proc = GetHardwareInfo("Win32_Processor", "Name"),
+                video = GetHardwareInfo("Win32_VideoController", "Name"),
+                disk = GetHardwareInfo("Win32_DiskDrive", "Caption"),
+                sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024),
+            };
+
         }
+        private static void OutputResult(string info, List<string> result)
+        {
+            if (info.Length > 0)
+                Console.WriteLine(info);
+
+            if (result.Count > 0)
+            {
+                for (int i = 0; i < result.Count; ++i)
+                    Console.WriteLine(result[i]);
+            }
+        }   
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private static string GetHardwareInfo(string WIN32_Class, string ClassItemField)
+        {
+            string result = null;
+
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM " + WIN32_Class);
+
+            try
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    result += (obj[ClassItemField].ToString().Trim());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return result;
         }
 
         private const int WH_KEYBOARD_LL = 13;//Keyboard hook;
