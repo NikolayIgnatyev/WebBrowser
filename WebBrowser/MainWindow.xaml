@@ -8,14 +8,14 @@
         Title="MainWindow" Height="450" Width="800" WindowState="Maximized" WindowStyle="None" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
         <cefSharp:ChromiumWebBrowser x:Name="webBrowser"/>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" Margin="50">
+        <StackPanel  HorizontalAlignment="Right" Background="Transparent" Margin="30" >
             <TextBlock Text="{Binding Path= Proc, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Video, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="{Binding Path= Ram, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= VolumeRam, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Disk, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= VolumeDisk, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="{Binding Path= KeyboardName, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" MaxWidth="200"/>
+            <TextBlock Text="{Binding Path= KeyboardName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Mother, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Mouse, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= MonitorName, UpdateSourceTrigger=PropertyChanged}"/>

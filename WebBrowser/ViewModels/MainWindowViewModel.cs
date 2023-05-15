@@ -23,17 +23,19 @@ namespace WebBrowser.ViewModels
         string _mouse;
         public MainWindowViewModel(PC pc)
         {
-            VolumeDisk = pc.sizeDiskGb.ToString();
             Proc = pc.proc;
             Video = pc.video;
-            Disk = pc.disk;
-            Ram = pc.ram;
-            VolumeRam = pc.ramSize.ToString();
-            MonitorName = pc.monitorName;
+
             Mother = pc.motherboardName;
-            KeyboardName = pc.keyboardName;
             ScreenSize = pc.screenSize;
             Mouse = pc.mouseName;
+            MonitorName = pc.monitorName;
+
+            KeyboardName = pc.keyboardName;
+            Disk = pc.disk;
+            VolumeDisk = pc.sizeDiskGb.ToString();
+            Ram = pc.ram;
+            VolumeRam = pc.ramSize.ToString();
 
         }
         public string Mouse
@@ -68,7 +70,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _monitorName ="Клавиатура: "+ value;
+                _keyboardName ="Клавиатура: "+ value;
                 OnPropertyChanged(nameof(KeyboardName));
             }
         }
