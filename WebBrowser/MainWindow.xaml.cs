@@ -68,8 +68,8 @@ namespace WebBrowser
             {
                 foreach (ManagementObject obj in searcher.Get())
                 {
-                    Console.WriteLine($"{obj[ClassItemField].ToString().Trim()}, ");
-                    result += $"{obj[ClassItemField].ToString().Trim()}, ";
+                    result += $"{obj[ClassItemField].ToString().Trim()} ";
+                    
                 }
             }
             catch (Exception ex)
@@ -77,7 +77,52 @@ namespace WebBrowser
                 Console.WriteLine(ex.Message);
             }
 
-            return result;
+            return WordsDistinct(result);
+        }
+
+        static string WordsDistinct(string src)
+        {
+            var split = src.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var sb = new StringBuilder();
+            var buffer = new int[split.Length];
+            var index = 0;
+
+            foreach (var item in split)
+            {
+                var word = "";
+                var puctuationIndex = FirstIndexOfPunctuation(item);
+                if (puctuationIndex != -1)
+                {
+                    word = item.Substring(0, puctuationIndex);
+                }
+                else
+                {
+                    word = item;
+                }
+
+                var hash = word.ToLower().GetHashCode();
+                if (Array.IndexOf(buffer, hash) == -1)
+                {
+                    buffer[index++] = hash;
+                    sb.Append(item);
+                    sb.Append(" ");
+                }
+
+            }
+
+            return sb.ToString().TrimEnd();
+        }
+
+        static int FirstIndexOfPunctuation(string src)
+        {
+            for (int i = 0; i < src.Length; i++)
+            {
+                if (char.IsPunctuation(src[i]))
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         private double GetHardwareInfoInt(string WIN32_Class, string ClassItemField)
