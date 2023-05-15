@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace WebBrowser
 {
@@ -33,10 +35,11 @@ namespace WebBrowser
             SetHook();
             PC pC = new PC
             {
-                proc = GetHardwareInfo("Win32_Processor", "Name"),
-                video = GetHardwareInfo("Win32_VideoController", "Name"),
-                disk = GetHardwareInfo("Win32_DiskDrive", "Caption"),
-                sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024),
+                proc = GetHardwareInfo("Win32_Processor", "Name").ToString(),
+                video = GetHardwareInfo("Win32_VideoController", "Name").ToString(),
+                disk = GetHardwareInfo("Win32_DiskDrive", "Caption").ToString(),
+                //sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024).ToString(),
+
             };
 
         }
@@ -51,6 +54,19 @@ namespace WebBrowser
                     Console.WriteLine(result[i]);
             }
         }   
+            PC pC = new PC
+            {
+                proc = GetHardwareInfo("Win32_Processor", "Name"),
+                video = GetHardwareInfo("Win32_VideoController", "Name"),
+                disk = GetHardwareInfo("Win32_DiskDrive", "Caption"),
+                sizeDiskGb = (int.Parse(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024 / 1024),
+            };
+
+        }
+        private static void OutputResult(string info, List<string> result)
+        {
+            if (info.Length > 0)
+                Console.WriteLine(info);
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
