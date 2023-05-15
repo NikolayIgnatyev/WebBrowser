@@ -39,9 +39,9 @@ namespace WebBrowser
                 proc = GetHardwareInfo("Win32_Processor", "Name"),
                 video = GetHardwareInfo("Win32_VideoController", "Name"),
                 disk = GetHardwareInfo("Win32_DiskDrive", "Caption"),
-                sizeDiskGb = Math.Round(Convert.ToDouble(GetHardwareInfo("Win32_DiskDrive", "Size").ToString()) / 1024 / 1024, 2),
+                sizeDiskGb = Math.Round(GetHardwareInfoInt("Win32_DiskDrive", "Size") / 1024, 2),
                 ram = GetHardwareInfo("Win32_PhysicalMemory", "Manufacturer"),
-                ramSize = Math.Round(Convert.ToDouble(GetHardwareInfo("Win32_PhysicalMemory", "Capacity")) / 1024 / 1024, 2)
+                ramSize = GetHardwareInfoInt("Win32_PhysicalMemory", "Capacity")
             };
             DataContext = new MainWindowViewModel(pc);
         }
@@ -73,6 +73,28 @@ namespace WebBrowser
 
             return result;
         }
+
+        private double GetHardwareInfoInt(string WIN32_Class, string ClassItemField)
+        {
+            double result = 0;
+
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM " + WIN32_Class);
+
+            try
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    result += Math.Round(Convert.ToDouble(obj[ClassItemField].ToString().Trim()) / 1024 / 1024 / 1024, 2);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return result;
+        }
+
 
         private const int WH_KEYBOARD_LL = 13;//Keyboard hook;
 
