@@ -33,7 +33,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _Ram = value;
+                _Ram = "Оперативная память: " + value + " ГБ";
                 OnPropertyChanged(nameof(Ram));
             }
         }
@@ -45,7 +45,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _Disk = value;
+                _Disk ="Диск: " + value;
                 OnPropertyChanged(nameof(Disk));
             }
         }
@@ -57,7 +57,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _volumeDisk = value;
+                _volumeDisk = "Объём диска: " + value + " ТБ";
                 OnPropertyChanged(nameof(VolumeDisk));
             }
         }
@@ -66,7 +66,7 @@ namespace WebBrowser.ViewModels
             get { return _proc; }
             set 
             { 
-                _proc = value; 
+                _proc = "Процессор: " + value; 
                 OnPropertyChanged(nameof(Proc));
             }
         }
@@ -78,7 +78,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _video = value;
+                _video = "Видеокарта: " +value;
                 OnPropertyChanged(nameof(Video));
             }
         }
@@ -86,7 +86,7 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _volumeRam;
+                return "Объем оперативной памяти: " + _volumeRam;
             }
             set
             {

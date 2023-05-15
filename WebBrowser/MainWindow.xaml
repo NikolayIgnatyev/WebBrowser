@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800" WindowState="Maximized" WindowStyle="None" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
         <cefSharp:ChromiumWebBrowser x:Name="webBrowser"/>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Background="AliceBlue" Margin="50">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Background="AliceBlue" Margin="50" Opacity="50">
             <TextBlock Text="{Binding Path= Proc, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="{Binding Path= Video, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="{Binding Path= Ram, UpdateSourceTrigger=PropertyChanged}"/>
