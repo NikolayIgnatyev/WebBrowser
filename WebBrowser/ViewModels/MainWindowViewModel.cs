@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WebBrowser.ViewModels
 {
@@ -32,7 +33,7 @@ namespace WebBrowser.ViewModels
             Mother = pc.motherboardName;
             KeyboardName = pc.keyboardName;
             ScreenSize = pc.screenSize;
-
+            Mouse = pc.mouseName;
 
         }
         public string Mouse
@@ -43,7 +44,7 @@ namespace WebBrowser.ViewModels
             }
             set
             {
-                _mouse = value;
+                _mouse = "Мышь: " + value;
                 OnPropertyChanged(nameof(Mouse));
             }
         }
