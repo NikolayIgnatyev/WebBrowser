@@ -53,10 +53,8 @@ namespace WebBrowser
 
         private void WebBrowser_JavascriptMessageReceived(object sender, JavascriptMessageReceivedEventArgs e)
         {
-            if(e != null)
-            {
-                System.Windows.MessageBox.Show(e.Message.ToString());
-            }
+            string[] replyes = e.Message.ToString().Split(',');
+            ConnectDB.WriteInDb(pc, replyes[0], replyes[1]);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
