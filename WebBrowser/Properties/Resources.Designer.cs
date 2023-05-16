@@ -61,6 +61,16 @@ namespace WebBrowser.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] dump {
+            get {
+                object obj = ResourceManager.GetObject("dump", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на CREATE TABLE public.users (
         ///	username varchar NULL,
         ///	&quot;password&quot; varchar NULL,
@@ -76,9 +86,9 @@ namespace WebBrowser.Properties {
         ///	motherboard varchar NULL
         ///);.
         /// </summary>
-        internal static string String1 {
+        internal static string OldScript {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("OldScript", resourceCulture);
             }
         }
     }

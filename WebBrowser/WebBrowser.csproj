@@ -155,6 +155,7 @@
     <None Include="html\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\dump" />
     <Resource Include="html\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
