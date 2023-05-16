@@ -19,18 +19,15 @@ namespace WebBrowser.ViewModels
         string _monitorName;
         string _keyboardName;
         string _mother;
-        string _screenSize;
         string _mouse;
+
         public MainWindowViewModel(PC pc)
         {
             Proc = pc.proc;
             Video = pc.video;
-
             Mother = pc.motherboardName;
-            ScreenSize = pc.screenSize;
             Mouse = pc.mouseName;
             MonitorName = pc.monitorName;
-
             KeyboardName = pc.keyboardName;
             Disk = pc.disk;
             VolumeDisk = pc.sizeDiskGb.ToString();
@@ -48,18 +45,6 @@ namespace WebBrowser.ViewModels
             {
                 _mouse = "Мышь: " + value;
                 OnPropertyChanged(nameof(Mouse));
-            }
-        }
-        public string ScreenSize
-        {
-            get
-            {
-                return _screenSize;
-            }
-            set
-            {
-                _screenSize = "Разрешение экрана: " + value;
-                OnPropertyChanged(nameof(ScreenSize));
             }
         }
         public string KeyboardName

@@ -19,7 +19,6 @@ namespace WebBrowser
         public string keyboardName { get; set; }
         public string mouseName { get; set; }
         public string motherboardName { get; set; }
-        public string screenSize { get; set; }
         public PC() { }
     }
 }
