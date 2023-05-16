@@ -118,6 +118,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ConnectDB.cs" />
+    <Compile Include="InfoFromDb.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
