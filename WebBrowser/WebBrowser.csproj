@@ -117,7 +117,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConnectDB.cs" />
+    <Compile Include="Models\ConnectDB.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -134,7 +134,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PC.cs" />
+    <Compile Include="Models\PCInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -9,6 +9,7 @@
     <Grid>
         <cefSharp:ChromiumWebBrowser x:Name="webBrowser"/>
         <StackPanel  HorizontalAlignment="Right" Background="Transparent" Margin="15,200,15,15">
+            <TextBlock Text="{Binding Path= PcName, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Proc, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="{Binding Path= Video, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Text="{Binding Path= Ram, UpdateSourceTrigger=PropertyChanged}"/>

@@ -9,5 +9,8 @@
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="UltraBold"/>
         </Style>
+        <Style TargetType="Window">
+            
+        </Style>
     </Application.Resources>
 </Application>

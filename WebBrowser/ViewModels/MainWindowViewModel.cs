@@ -20,30 +20,42 @@ namespace WebBrowser.ViewModels
         string _keyboardName;
         string _mother;
         string _mouse;
+        string _pcName;
 
-        public MainWindowViewModel(PC pc)
+        public string PcName
         {
-            Proc = pc.proc;
-            Video = pc.video;
-            Mother = pc.motherboardName;
-            Mouse = pc.mouseName;
-            MonitorName = pc.monitorName;
-            KeyboardName = pc.keyboardName;
-            Disk = pc.disk;
-            VolumeDisk = pc.sizeDiskGb.ToString();
-            Ram = pc.ram;
-            VolumeRam = pc.ramSize.ToString();
-
+            get
+            {
+                return "Имя компьютера: " + PC.PcName;
+            }
+            set
+            {
+                _pcName = value;
+                OnPropertyChanged(nameof(PcName));
+            }
+        }
+        public PCInfo _pc = new PCInfo();
+        public PCInfo PC
+        {
+            get
+            {
+                return _pc;
+            }
+            set
+            {
+                _pc = value;
+                OnPropertyChanged(nameof(PC));
+            }
         }
         public string Mouse
         {
             get
             {
-                return _mouse;
+                return "Мышь: " + PC.MouseName;
             }
             set
             {
-                _mouse = "Мышь: " + value;
+                _mouse =  value;
                 OnPropertyChanged(nameof(Mouse));
             }
         }
@@ -51,11 +63,11 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _keyboardName;
+                return "Клавиатура: " + PC.KeyboardName;
             }
             set
             {
-                _keyboardName ="Клавиатура: "+ value;
+                _keyboardName = value;
                 OnPropertyChanged(nameof(KeyboardName));
             }
         }
@@ -63,11 +75,11 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _mother;
+                return "Материнская плата: " + PC.MotherboardName;
             }
             set
             {
-                _mother = "Материнская плата: " + value;
+                _mother = value;
                 OnPropertyChanged(nameof(Mother));
             }
         }
@@ -75,11 +87,11 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _monitorName;
+                return "Монитор: " + PC.MonitorName;
             }
             set
             {
-                _monitorName = "Монитор: " + value;
+                _monitorName = value;
                 OnPropertyChanged(nameof(MonitorName));
             }
         }
@@ -87,11 +99,11 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _Ram;
+                return "Оперативная память: " + PC.Ram;
             }
             set
             {
-                _Ram = "Оперативная память: " + value;
+                _Ram = value;
                 OnPropertyChanged(nameof(Ram));
             }
         }
@@ -99,11 +111,11 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _Disk;
+                return "Диск: " + PC.Disk;
             }
             set
             {
-                _Disk ="Диск: " + value;
+                _Disk = value;
                 OnPropertyChanged(nameof(Disk));
             }
         }
@@ -111,20 +123,23 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _volumeDisk;
+                return "Объём диска: " + PC.SizeDiskGb + " ТБ";
             }
             set
             {
-                _volumeDisk = "Объём диска: " + value + " ТБ";
+                _volumeDisk = value;
                 OnPropertyChanged(nameof(VolumeDisk));
             }
         }
         public string Proc
         {
-            get { return _proc; }
+            get 
+            { 
+                return "Процессор: " + PC.Proc; 
+            }
             set 
             { 
-                _proc = "Процессор: " + value; 
+                _proc = value; 
                 OnPropertyChanged(nameof(Proc));
             }
         }
@@ -132,11 +147,11 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return _video;
+                return "Видеокарта: " + PC.Video;
             }
             set
             {
-                _video = "Видеокарта: " +value;
+                _video = value;
                 OnPropertyChanged(nameof(Video));
             }
         }
@@ -144,7 +159,7 @@ namespace WebBrowser.ViewModels
         {
             get
             {
-                return "Объем оперативной памяти: " + _volumeRam + " ГБ";
+                return "Объем оперативной памяти: " + PC.RamSize + " ГБ";
             }
             set
             {

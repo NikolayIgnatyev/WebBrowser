@@ -24,34 +24,12 @@ namespace WebBrowser
     /// </summary>
     public partial class MainWindow : Window
     {
-        PC pc;
+        PCInfo pc;
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            webBrowser.Address = Environment.CurrentDirectory.Replace(@"\", @"/") + "/html/index.html";
-            //SetHook();
-            pc = new PC
-            {
-                proc = GetHardwareInfo("Win32_Processor", "Name"),
-                video = GetHardwareInfo("Win32_VideoController", "Name"),
-                disk = GetHardwareInfo("Win32_DiskDrive", "Caption"),
-                sizeDiskGb = Math.Round(GetHardwareInfoInt("Win32_DiskDrive", "Size") / 1024, 2),
-                ram = GetHardwareInfo("Win32_PhysicalMemory", "Manufacturer"),
-                ramSize = GetHardwareInfoInt("Win32_PhysicalMemory", "Capacity"),
-                monitorName = GetHardwareInfo("Win32_DesktopMonitor", "Name"),
-                keyboardName = GetHardwareInfo("Win32_Keyboard", "Description"),
-                mouseName = GetHardwareInfo("Win32_PointingDevice", "Description"),
-                motherboardName = GetHardwareInfo("Win32_BaseBoard", "Manufacturer") + " " + GetHardwareInfo("Win32_BaseBoard", "Product")
-            };
-            DataContext = new MainWindowViewModel(pc);
-            webBrowser.JavascriptMessageReceived += WebBrowser_JavascriptMessageReceived; ;
-        }
-
-        private void WebBrowser_JavascriptMessageReceived(object sender, JavascriptMessageReceivedEventArgs e)
+        private void WebBrowser_JavaScriptMessageReceived(object sender, JavascriptMessageReceivedEventArgs e)
         {
             string[] replyes = e.Message.ToString().Split(',');
             ConnectDB.WriteInDb(pc, replyes[0], replyes[1]);
@@ -62,92 +40,16 @@ namespace WebBrowser
             e.Cancel = true;
         }
 
-        private static string GetHardwareInfo(string WIN32_Class, string ClassItemField)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string result = null;
-
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + WIN32_Class);
-
-            try
-            {
-                foreach (ManagementObject obj in searcher.Get())
-                {
-                    result += $"{obj[ClassItemField].ToString().Trim()} ";
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return WordsDistinct(result);
+            //SetHook(); shift разлочил, можно и включить
+            webBrowser.Address = Environment.CurrentDirectory.Replace(@"\", @"/") + "/html/index.html";
+            pc = new PCInfo();
+            DataContext = new MainWindowViewModel();
+            webBrowser.JavascriptMessageReceived += WebBrowser_JavaScriptMessageReceived; ;
         }
 
-        static string WordsDistinct(string src)
-        {
-            var split = src.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            var sb = new StringBuilder();
-            var buffer = new int[split.Length];
-            var index = 0;
 
-            foreach (var item in split)
-            {
-                var word = "";
-                var puctuationIndex = FirstIndexOfPunctuation(item);
-                if (puctuationIndex != -1)
-                {
-                    word = item.Substring(0, puctuationIndex);
-                }
-                else
-                {
-                    word = item;
-                }
-
-                var hash = word.ToLower().GetHashCode();
-                if (Array.IndexOf(buffer, hash) == -1)
-                {
-                    buffer[index++] = hash;
-                    sb.Append(item);
-                    sb.Append(" ");
-                }
-
-            }
-
-            return sb.ToString().TrimEnd();
-        }
-
-        static int FirstIndexOfPunctuation(string src)
-        {
-            for (int i = 0; i < src.Length; i++)
-            {
-                if (char.IsPunctuation(src[i]))
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
-        private double GetHardwareInfoInt(string WIN32_Class, string ClassItemField)
-        {
-            double result = 0;
-
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM " + WIN32_Class);
-
-            try
-            {
-                foreach (ManagementObject obj in searcher.Get())
-                {
-                    result += Math.Round(Convert.ToDouble(obj[ClassItemField].ToString().Trim()) / 1024 / 1024 / 1024, 2);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return result;
-        }
 
         #region Hook
         private const int WH_KEYBOARD_LL = 13;//Keyboard hook;
@@ -316,8 +218,8 @@ namespace WebBrowser
                 lParam, typeof(KBDLLHOOKSTRUCT));
                 if (objKeyInfo.key == Keys.LControlKey ||
                 objKeyInfo.key == Keys.RControlKey ||
-                objKeyInfo.key == Keys.LShiftKey ||
-                objKeyInfo.key == Keys.RShiftKey ||
+                //objKeyInfo.key == Keys.LShiftKey ||
+                //objKeyInfo.key == Keys.RShiftKey ||
                 objKeyInfo.key == Keys.Escape)
                 {
                     return (IntPtr)1;//control+shift+escape
