@@ -76,32 +76,37 @@ namespace WebBrowser
 
                         MessageBox.Show("Insert user complete");
                     }
-                }
-                if (IsNoTherePC(pcPreference.PcName))
-                {
-                    using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+
+                    if (IsNoTherePC(pcPreference.PcName))
                     {
-                        connection.Open();
-                        NpgsqlCommand command = new NpgsqlCommand(queryWritePcInfo, connection);
+                        using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            NpgsqlCommand command = new NpgsqlCommand(queryWritePcInfo, connection);
 
-                        // Передаваемые параметры
-                        command.Parameters.AddWithValue("pcname", pcPreference.PcName);
-                        command.Parameters.AddWithValue("proc", pcPreference.Proc);
-                        command.Parameters.AddWithValue("video", pcPreference.Video);
-                        command.Parameters.AddWithValue("disk", pcPreference.Disk);
-                        command.Parameters.AddWithValue("disksize", pcPreference.SizeDiskGb);
-                        command.Parameters.AddWithValue("ram", pcPreference.Ram);
-                        command.Parameters.AddWithValue("ramsize", pcPreference.RamSize);
-                        command.Parameters.AddWithValue("monitor", pcPreference.MonitorName);
-                        command.Parameters.AddWithValue("key", pcPreference.KeyboardName);
-                        command.Parameters.AddWithValue("mouse", pcPreference.MouseName);
-                        command.Parameters.AddWithValue("mother", pcPreference.MotherboardName);
+                            // Передаваемые параметры
+                            command.Parameters.AddWithValue("pcname", pcPreference.PcName);
+                            command.Parameters.AddWithValue("proc", pcPreference.Proc);
+                            command.Parameters.AddWithValue("video", pcPreference.Video);
+                            command.Parameters.AddWithValue("disk", pcPreference.Disk);
+                            command.Parameters.AddWithValue("disksize", pcPreference.SizeDiskGb);
+                            command.Parameters.AddWithValue("ram", pcPreference.Ram);
+                            command.Parameters.AddWithValue("ramsize", pcPreference.RamSize);
+                            command.Parameters.AddWithValue("monitor", pcPreference.MonitorName);
+                            command.Parameters.AddWithValue("key", pcPreference.KeyboardName);
+                            command.Parameters.AddWithValue("mouse", pcPreference.MouseName);
+                            command.Parameters.AddWithValue("mother", pcPreference.MotherboardName);
 
-                        command.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
 
 
-                        MessageBox.Show("Insert pcinfo complete");
+                            MessageBox.Show("Insert pcinfo complete");
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Такой пользователь уже есть");
                 }
             }
             
